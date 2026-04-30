@@ -178,5 +178,6 @@ export const SKILLS: Skill[] = [
   { name: 'Surface Mount Soldering', category: 'Electrical', proficiency: 95 },
   { name: 'Oscilloscope Diagnostics', category: 'Electrical', proficiency: 88 },
   { name: 'Git / CI-CD', category: 'Tools', proficiency: 80 },
-  { name: 'Docker', category: 'Tools', proficiency: 75 }
+  { name: 'Docker', category: 'Tools', proficiency: 75 },
+  { name: 'Data Annotator', category: 'Tools', proficiency: 90 }
 ];
