@@ -71,14 +71,14 @@ const Navbar = () => {
       id="main-nav"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'py-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800' 
+          ? 'py-4 bg-[var(--nav-bg)] backdrop-blur-lg border-b border-slate-200 dark:border-slate-800' 
           : 'py-6 bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-xl font-bold tracking-tighter flex items-center gap-2 group text-slate-900 dark:text-white">
           <CircuitBoard className="w-6 h-6 text-brand-primary group-hover:rotate-90 transition-transform duration-500" />
-          <span>FRED <span className="text-brand-primary">ABOAGYE</span></span>
+          <span>FREDERICK <span className="text-brand-primary">ABOAGYE</span></span>
         </a>
 
         {/* Desktop Nav */}
@@ -192,7 +192,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-brand-accent/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="section-container relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+      <div className="section-container relative z-10 grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-24 items-center">
         <motion.div
            initial={{ opacity: 0, x: -30 }}
            animate={{ opacity: 1, x: 0 }}
@@ -202,13 +202,13 @@ const Hero = () => {
              <span className="w-2 h-2 bg-brand-accent rounded-full animate-ping" />
              Available for Projects
           </div>
-          <h1 id="hero-title" className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8 bg-gradient-to-br from-slate-950 via-slate-800 to-slate-500 dark:from-white dark:to-slate-400 bg-clip-text text-transparent font-serif">
+          <h1 id="hero-title" className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 bg-gradient-to-br from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:to-slate-400 bg-clip-text text-transparent font-serif leading-[1.1]">
             ENGINEERING <br />
             <span className="text-brand-primary">DIGITAL</span> & <br />
             PHYSICAL <span className="text-slate-400 font-light">SYSTEMS.</span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-xl mb-10 leading-relaxed">
-            I'm Fred Aboagye, an Electrical Engineer and Coder specializing in 
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-xl mb-10 leading-relaxed">
+            I'm Frederick Aboagye, an Electrical Engineer and Coder specializing in 
             full-stack development and high-end hardware refurbishment. 
             Designing circuits and shipping code.
           </p>
@@ -226,26 +226,31 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative aspect-square flex items-center justify-center p-8"
+          className="relative flex items-center justify-center p-4 lg:p-0"
         >
-          <div className="relative w-full max-w-md">
-            {/* Artistic Frame */}
-            <div className="absolute inset-0 bg-brand-primary rounded-3xl rotate-6 scale-95 opacity-20 animate-pulse-slow" />
-            <div className="absolute inset-0 bg-brand-accent rounded-3xl -rotate-3 scale-95 opacity-20 animate-pulse" />
-            
-            <div className="relative glass-card aspect-square p-2 border-slate-200 dark:border-slate-800 shadow-2xl overflow-visible">
+          <div className="relative w-full max-w-sm">
+            <div 
+              className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-800 shadow-2xl group transition-all duration-500"
+              style={{ boxShadow: '0 25px 60px -15px var(--brand-shadow)' }}
+            >
               <img 
-                src="https://picsum.photos/seed/engineer-fred/1000/1000" 
-                alt="Fred Aboagye" 
-                className="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-700" 
+                src="/input_file_0.png" 
+                alt="Frederick Aboagye" 
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
                 referrerPolicy="no-referrer"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-60" />
+              
               {/* Overlay Badge */}
-              <div className="absolute -bottom-10 -right-10 p-6 glass-card bg-white/95 dark:bg-slate-950/90 max-w-[220px] border-slate-200 dark:border-slate-800 shadow-2xl">
-                <div className="text-[10px] font-mono text-brand-primary mb-1 uppercase tracking-widest">// Focus Area</div>
+              <div className="absolute bottom-6 left-6 right-6 p-4 glass-card bg-white/95 dark:bg-slate-950/90 border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-md">
+                <div className="text-[10px] font-mono text-brand-primary mb-1 uppercase tracking-widest font-bold">// Focus Area</div>
                 <p className="text-sm font-bold leading-tight text-slate-800 dark:text-slate-100">Industrial IoT & Full-Stack Hardware Repair</p>
               </div>
             </div>
+            
+            {/* Artistic accents */}
+            <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-brand-primary rounded-tl-xl opacity-40" />
+            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-brand-primary rounded-br-xl opacity-40" />
           </div>
         </motion.div>
       </div>
@@ -593,7 +598,7 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-slate-200 dark:border-slate-900 text-slate-500 text-sm font-mono uppercase tracking-widest">
-        <div>© 2026 FRED ABOAGYE PORTFOLIO. BUILT WITH PRECISION.</div>
+        <div>© 2026 FREDERICK ABOAGYE PORTFOLIO. BUILT WITH PRECISION.</div>
         <div className="flex gap-8">
           <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">GITHUB</a>
           <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">LINKEDIN</a>
@@ -620,7 +625,7 @@ export default function App() {
     // Add new theme class
     document.documentElement.classList.add(theme);
     // Dark mode class (for tailwind dark: modifiers)
-    if (theme === 'dark' || theme === 'golden' || theme === 'green') {
+    if (theme === 'dark' || theme === 'golden' || theme === 'green' || theme === 'blue') {
       document.documentElement.classList.add('dark');
     }
     localStorage.setItem('portfolio-theme', theme);
