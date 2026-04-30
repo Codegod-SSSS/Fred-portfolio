@@ -1,10 +1,14 @@
 
+export type Language = 'en' | 'ko' | 'fr';
+
+export type Translatable = Record<Language, string>;
+
 export interface Project {
   id: string;
-  title: string;
+  title: Translatable;
   category: 'web' | 'hardware' | 'electrical';
-  description: string;
-  longDescription?: string;
+  description: Translatable;
+  longDescription?: Translatable;
   image: string;
   tags: string[];
   links?: {
