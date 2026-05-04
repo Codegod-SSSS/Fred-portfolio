@@ -303,16 +303,16 @@ const Hero = () => {
         >
           <div className="relative w-full max-w-sm">
             <div 
-              className="relative aspect-[3/4] rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-800 shadow-2xl group transition-all duration-500"
+              className="relative aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl group transition-all duration-500"
               style={{ boxShadow: '0 25px 60px -15px var(--brand-shadow)' }}
             >
               <img 
-                src="/input_file_0.png" 
+                src="/profile.png" 
                 alt="Frederick Aboagye" 
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
+                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" 
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60 transition-opacity group-hover:opacity-40" />
               
               {/* Overlay Badge */}
               <div className="absolute bottom-6 left-6 right-6 p-4 glass-card bg-white/95 dark:bg-slate-950/90 border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-md">
