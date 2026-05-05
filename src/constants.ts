@@ -167,6 +167,30 @@ void loop() {
       github: '#',
       schematic: '#'
     }
+  },
+  {
+    id: '4',
+    title: {
+      en: 'Enterprise Network & Security Audit',
+      ko: '기업 네트워크 및 보안 감사',
+      fr: 'Audit de réseau et de sécurité d\'entreprise'
+    },
+    category: 'web',
+    description: {
+      en: 'Design and implementation of a secure enterprise network infrastructure with automated security monitoring and data annotation for anomaly detection.',
+      ko: '보안 변칙 탐지를 위한 자동 보안 모니터링 및 데이터 어노테이션이 포함된 보안 기업 네트워크 인프라 설계 및 구현입니다.',
+      fr: 'Conception et mise en œuvre d\'une infrastructure réseau d\'entreprise sécurisée avec surveillance automatique de la sécurité et annotation des données pour la détection des anomalies.'
+    },
+    longDescription: {
+      en: `# Network & Security Framework\nBuilding a zero-trust architecture for a medium-scale enterprise.\n\n## Implementation Details\n- **Networking**: Configured VPCs, Subnets, and Site-to-Site VPNs.\n- **Security**: Implemented WAF, DDoS protection, and periodic vulnerability scanning.\n- **Data Analysis**: Used custom data annotation tools to train models for network traffic anomaly detection.\n\n## Key Outcomes\n- Reduced unauthorized access attempts by 85%.\n- Real-time alerting for suspicious traffic patterns.`,
+      ko: `# 네트워크 및 보안 프레임워크\n중소기업을 위한 제로 트러스트 아키텍처를 구축했습니다.\n\n## 구현 상세\n- **네트워크**: VPC, 서브넷 및 Site-to-Site VPN을 구성했습니다.\n- **보안**: WAF, DDoS 방어 및 정기적 취약점 점검을 구현했습니다.\n- **데이터 분석**: 네트워크 트래픽 이상 탐지를 위한 모델 학습용 커스텀 데이터 어노테이션 툴을 사용했습니다.\n\n## 주요 결과\n- 미승인 접근 시도를 85% 감소시켰습니다.\n- 의심스러운 트래픽 패턴에 대한 실시간 알림 시스템을 구축했습니다.`,
+      fr: `# Cadre de réseau et de sécurité\nConstruction d'une architecture zero-trust pour une entreprise de taille moyenne.\n\n## Détails de mise en œuvre\n- **Réseautage** : Configuration des VPC, sous-réseaux et VPN de site à site.\n- **Sécurité** : Mise en œuvre du WAF, de la protection DDoS et d'analyses de vulnérabilité périodiques.\n- **Analyse des données** : Utilisation d'outils d'annotation de données personnalisés pour entraîner des modèles de détection d'anomalies du trafic réseau.\n\n## Résultats clés\n- Réduction des tentatives d'accès non autorisées de 85 %.\n- Alertes en temps réel pour les schémas de trafic suspects.`
+    },
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000',
+    tags: ['Networking', 'Security', 'Data Science', 'Cloud'],
+    links: {
+      github: '#'
+    }
   }
 ];
 
@@ -179,5 +203,7 @@ export const SKILLS: Skill[] = [
   { name: 'Oscilloscope Diagnostics', category: 'Electrical', proficiency: 88 },
   { name: 'Git / CI-CD', category: 'Tools', proficiency: 80 },
   { name: 'Docker', category: 'Tools', proficiency: 75 },
+  { name: 'Computer Networking', category: 'Tools', proficiency: 88 },
+  { name: 'Network Security', category: 'Tools', proficiency: 85 },
   { name: 'Data Annotator', category: 'Tools', proficiency: 90 }
 ];

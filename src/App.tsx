@@ -398,20 +398,20 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
             <div className="space-y-4">
               <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('modal_resources')}</h3>
               <div className="flex flex-col gap-3">
-                {project.links?.live && (
-                  <a href="#" className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 transition-colors group">
+                {project.links?.live && project.links.live !== '#' && (
+                  <a href={project.links.live} target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 transition-colors group">
                     <span className="flex items-center gap-3 text-slate-700 dark:text-slate-300"><Globe className="w-4 h-4" /> Live Site</span>
                     <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100" />
                   </a>
                 )}
-                {project.links?.github && (
-                  <a href="#" className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 transition-colors group">
+                {project.links?.github && project.links.github !== '#' && (
+                  <a href={project.links.github} target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 transition-colors group">
                     <span className="flex items-center gap-3 text-slate-700 dark:text-slate-300"><Github className="w-4 h-4" /> Repository</span>
                     <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100" />
                   </a>
                 )}
-                {project.links?.schematic && (
-                  <a href="#" className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 transition-colors group">
+                {project.links?.schematic && project.links.schematic !== '#' && (
+                  <a href={project.links.schematic} target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-brand-primary/10 dark:hover:bg-brand-primary/20 transition-colors group">
                     <span className="flex items-center gap-3 text-slate-700 dark:text-slate-300"><FileText className="w-4 h-4" /> Datasheet/Schematic</span>
                     <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100" />
                   </a>
@@ -614,21 +614,56 @@ const SkillsSection = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="glass-card p-10 flex flex-col justify-center items-center text-center group bg-white/40 dark:bg-slate-900/40">
-            <Zap className="w-12 h-12 text-yellow-400 mb-6 group-hover:scale-110 transition-transform" />
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="glass-card p-10 flex flex-col justify-center items-center text-center group bg-white/40 dark:bg-slate-900/40"
+          >
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: 15 }}
+              animate={{ y: [0, -5, 0] }}
+              transition={{ animate: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+            >
+              <Zap className="w-12 h-12 text-yellow-400 mb-6" />
+            </motion.div>
             <div className="text-4xl font-black mb-2 text-slate-800 dark:text-white">50+</div>
             <div className="text-slate-400 uppercase text-[10px] tracking-widest font-mono">{t('skills_stats_repairs')}</div>
-          </div>
-          <div className="glass-card p-10 flex flex-col justify-center items-center text-center group bg-white/40 dark:bg-slate-900/40">
-            <Cpu className="w-12 h-12 text-brand-primary mb-6 group-hover:scale-110 transition-transform" />
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="glass-card p-10 flex flex-col justify-center items-center text-center group bg-white/40 dark:bg-slate-900/40"
+          >
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: -15 }}
+              animate={{ rotate: [0, 5, 0, -5, 0] }}
+              transition={{ animate: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
+            >
+              <Cpu className="w-12 h-12 text-brand-primary mb-6" />
+            </motion.div>
             <div className="text-4xl font-black mb-2 text-slate-800 dark:text-white">12</div>
             <div className="text-slate-400 uppercase text-[10px] tracking-widest font-mono">{t('skills_stats_pcbs')}</div>
-          </div>
-          <div className="glass-card p-10 flex flex-col justify-center items-center text-center group col-span-2 bg-white/40 dark:bg-slate-900/40">
-            <Globe className="w-12 h-12 text-brand-accent mb-6 group-hover:scale-110 transition-transform" />
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="glass-card p-10 flex flex-col justify-center items-center text-center group col-span-2 bg-white/40 dark:bg-slate-900/40"
+          >
+            <motion.div
+              whileHover={{ scale: 1.1, rotate: 360 }}
+              animate={{ rotate: 360 }}
+              transition={{ hover: { duration: 0.5 }, animate: { duration: 15, repeat: Infinity, ease: "linear" } }}
+            >
+              <Globe className="w-12 h-12 text-brand-accent mb-6" />
+            </motion.div>
             <div className="text-4xl font-black mb-2 text-slate-800 dark:text-white">20+</div>
             <div className="text-slate-400 uppercase text-[10px] tracking-widest font-mono">{t('skills_stats_web')}</div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -653,15 +688,12 @@ const Footer = () => {
               <Mail className="w-5 h-5" />
               {t('contact_form_email')}
             </a>
-            <a href="https://wa.me/233000000000" target="_blank" rel="noreferrer" className="px-6 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-all flex items-center gap-3 shadow-lg shadow-emerald-500/20">
+            <a href="https://wa.me/0579176059" target="_blank" rel="noreferrer" className="px-6 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-all flex items-center gap-3 shadow-lg shadow-emerald-500/20">
               <MessageCircle className="w-5 h-5" />
               WhatsApp
             </a>
-            <a href="#" className="p-4 bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white rounded-xl hover:brand-primary transition-all border border-slate-200 dark:border-slate-800 shadow-sm">
+            <a href="https://github.com/Codegod-SSSS" target="_blank" rel="noreferrer" className="p-4 bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white rounded-xl hover:brand-primary transition-all border border-slate-200 dark:border-slate-800 shadow-sm">
               <Github className="w-6 h-6" />
-            </a>
-            <a href="#" className="p-4 bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-white rounded-xl hover:brand-primary transition-all border border-slate-200 dark:border-slate-800 shadow-sm">
-              <Cpu className="w-6 h-6" />
             </a>
           </div>
         </div>
@@ -698,9 +730,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-slate-200 dark:border-slate-900 text-slate-500 text-sm font-mono uppercase tracking-widest">
         <div>{t('contact_footer_rights')}</div>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">GITHUB</a>
-          <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">LINKEDIN</a>
-          <a href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">TWITTER</a>
+          <a href="https://github.com/Codegod-SSSS" target="_blank" rel="noreferrer" className="hover:text-slate-900 dark:hover:text-white transition-colors">GITHUB</a>
         </div>
       </div>
     </footer>
@@ -744,7 +774,7 @@ export default function App() {
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       <LanguageContext.Provider value={{ language, setLanguage, t }}>
-        <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
+        <div className="min-h-screen transition-colors duration-300">
           <Navbar />
           <Hero />
           <ProjectGallery />
